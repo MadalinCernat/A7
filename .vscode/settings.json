@@ -1,6 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "."
+        "repositories"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
@@ -9,6 +9,6 @@
         "-s",
         ".",
         "-p",
-        "*_test.py"
+        "test_*.py"
     ]
 }
