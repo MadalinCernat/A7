@@ -13,3 +13,6 @@ class BaseRepository():
 
     def get_all(self):
         raise NotImplementedError
+
+    def undo(self, times):
+        raise NotImplementedError

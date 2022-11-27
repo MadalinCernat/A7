@@ -7,4 +7,7 @@ class StudentsService:
         students = list(filter(lambda x: (x._group == group), students))
         for s in students:
             self._repository.remove_by_id(s.get_id())
+        
+        # Return number of deleted students
+        return len(students)
     

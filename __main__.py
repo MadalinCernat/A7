@@ -15,16 +15,19 @@ def main():
 
     if repoType == "memory":
         repository = MemoryRepository()
+        repository.add(Student(1, "BDT", "911"))
+        repository.add(Student(2, "PLM", "911"))
+        repository.add(Student(3, "FMM", "912"))
     elif repoType == "textfile":
         file_name = settings["FileName"]
         repository = TextFileRepository(file_name)
     
     students_service = StudentsService(repository)
-    
+    deleted_students = 1
     while True:
         ui.print_menu()
         option = int(input())
-
+        
         if option == 1:
             student = ui.read_student()
             try:
@@ -37,7 +40,10 @@ def main():
                 print(stud)
         elif option == 3:
             group = input("Enter group:")
-            students_service.delete_group_of_students(group)
+            deleted_students = students_service.delete_group_of_students(group)
+        elif option == 4:
+            repository.undo(deleted_students)
+            deleted_students = 1
         elif option == 5:
             return
 

@@ -1,4 +1,4 @@
 {
-    "RepositoryType": "textfile",
+    "RepositoryType": "memory",
     "FileName": "students.csv"
 }
