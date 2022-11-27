@@ -15,9 +15,9 @@ def main():
 
     if repoType == "memory":
         repository = MemoryRepository()
-        repository.add(Student(1, "BDT", "911"))
-        repository.add(Student(2, "PLM", "911"))
-        repository.add(Student(3, "FMM", "912"))
+        repository.add(Student(1, "Student1", "911"))
+        repository.add(Student(2, "Student2", "911"))
+        repository.add(Student(3, "Student3", "912"))
     elif repoType == "textfile":
         file_name = settings["FileName"]
         repository = TextFileRepository(file_name)
@@ -47,4 +47,5 @@ def main():
         elif option == 5:
             return
 
-main()
+if __name__ == "__main__":
+    main()
