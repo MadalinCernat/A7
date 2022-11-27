@@ -6,9 +6,13 @@ class MemoryRepository(BaseRepository):
         super().__init__()
         self._students = []
 
-
     def add(self, student: Student):
-        self._students.append(student)
+        stud = self.find_by_id(student.get_id())
+        # If student is already in the list
+        if stud is None:
+            self._students.append(student)
+        else:
+            raise ValueError("Id already taken!")
 
     def remove_by_id(self, student_id):
         self._students= list(filter(lambda x: (x.get_id() != student_id), self._students))
@@ -19,6 +23,7 @@ class MemoryRepository(BaseRepository):
     def find_by_id(self, student_id):
         students = list(filter(lambda x: (x.get_id() == student_id), self._students))
         student = None
+
         if len(students) > 0:
             student = students[0]
         return student

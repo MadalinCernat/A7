@@ -9,6 +9,7 @@ from students_service import *
 def main():
     f = open("settings.json", "r")
     settings = json.load(f)
+    f.close()
     repoType = settings["RepositoryType"].lower()
     repository = BaseRepository()
 
@@ -26,7 +27,10 @@ def main():
 
         if option == 1:
             student = ui.read_student()
-            repository.add(student)
+            try:
+                repository.add(student)
+            except ValueError as e:
+                print(e)
         elif option == 2:
             students = repository.get_all()
             for stud in students:

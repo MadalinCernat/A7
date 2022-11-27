@@ -6,9 +6,16 @@ class TextFileRepository(BaseRepository):
         super(TextFileRepository, self).__init__()
         self._file_name = file_name
 
-    def add(self, student):
+    def add(self, student: Student):
         students = self.get_all()
-        students.append(student)
+        
+        search = self.find_by_id(student.get_id())
+
+        if search is None:
+            students.append(student)
+        else:
+            raise ValueError("Id already taken!")
+
         self.write(students)
 
     def find_by_id(self, student_id):
