@@ -15,9 +15,7 @@ def main():
 
     if repoType == "memory":
         repository = MemoryRepository()
-        repository.add(Student(1, "Student1", "911"))
-        repository.add(Student(2, "Student2", "911"))
-        repository.add(Student(3, "Student3", "912"))
+        add_sample_data_memory(repository)
     elif repoType == "textfile":
         file_name = settings["FileName"]
         repository = TextFileRepository(file_name)
@@ -46,6 +44,17 @@ def main():
             deleted_students = 1
         elif option == 5:
             return
+
+
+def add_sample_data_memory(repository: MemoryRepository)
+    repository.add(Student(1, "Student1", "911"))
+    repository.add(Student(2, "Student2", "911"))
+    repository.add(Student(3, "Student3", "912"))
+    repository.add(Student(4, "Student4", "912"))
+    repository.add(Student(5, "Student5", "912"))
+    repository.add(Student(6, "Student6", "914"))
+    repository.add(Student(7, "Student7", "914"))
+
 
 if __name__ == "__main__":
     main()
