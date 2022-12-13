@@ -15,7 +15,12 @@ class StudentsService:
         return len(students)
     
     def add_student(self, student):
-        self._repository.add(student)
+        stud = self._repository.find_by_id(student.get_id())
+        # If student is already in the list
+        if stud is None:
+            self._repository.add(student)
+        else:
+            raise ValueError("Id already taken!")
     
     def search(self, id):
         return self._repository.find_by_id(id)

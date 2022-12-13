@@ -2,7 +2,7 @@ from student import Student
 from .base_repository import *
 
 class TextFileRepository(BaseRepository):
-    def __init__(self, file_name: str):
+    def __init__(self, file_name):
         super(TextFileRepository, self).__init__()
         self._file_name = file_name
 

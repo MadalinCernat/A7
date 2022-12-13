@@ -10,13 +10,8 @@ class MemoryRepository(BaseRepository):
         self.lists.append(self._students.copy())
 
     def add(self, student: Student):
-        stud = self.find_by_id(student.get_id())
-        # If student is already in the list
-        if stud is None:
-            self._students.append(student)
-            self.lists.append(self._students.copy())
-        else:
-            raise ValueError("Id already taken!")
+        self._students.append(student)
+        self.lists.append(self._students.copy())
 
     def remove_by_id(self, student_id):
         self._students= list(filter(lambda x: (x.get_id() != student_id), self._students))
